@@ -27,6 +27,6 @@ Agents may use this repo to draft disclosure packets, validate whether required 
 
 This kit does not include exploit details, live indicators, private traces, credentials, cookies, browser data, customer data, or raw incident logs.
 
-Canonical article URL: TBD
+Canonical article URL: https://ankitkumar3514.substack.com/p/the-agent-incident-disclosure-ledger
 
 Public repo URL: https://github.com/ankitforce/agent-incident-disclosure-ledger-kit
