@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: Agent Incident Disclosure Ledger Kit
+message: If you use this kit, cite the accompanying Substack article.
+type: software
+authors:
+  - family-names: Kumar
+    given-names: Ankit
+year: 2026
+license: MIT
+url: TBD

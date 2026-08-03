@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Incident Disclosure",
+  "type": "object",
+  "required": ["incident_id", "detected_at", "status", "agent_context", "boundary_record", "evidence_record", "disclosure_split", "remediation"],
+  "properties": {
+    "incident_id": { "type": "string" },
+    "detected_at": { "type": "string", "format": "date-time" },
+    "contained_at": { "type": ["string", "null"], "format": "date-time" },
+    "status": { "type": "string", "enum": ["investigating", "contained", "resolved", "monitoring"] },
+    "agent_context": {
+      "type": "object",
+      "required": ["model_or_agent", "task_objective", "mode"],
+      "properties": {
+        "model_or_agent": { "type": "string" },
+        "owner": { "type": "string" },
+        "task_objective": { "type": "string" },
+        "mode": { "type": "string", "enum": ["evaluation", "production", "research", "unknown"] },
+        "safeguard_configuration": { "type": "string" },
+        "human_approval_mode": { "type": "string" }
+      }
+    },
+    "boundary_record": {
+      "type": "object",
+      "properties": {
+        "declared_environment": { "type": "string" },
+        "actual_reachable_environment": { "type": "string" },
+        "network_egress_path": { "type": "string" },
+        "tool_scope": { "type": "array", "items": { "type": "string" } },
+        "credential_scope": { "type": "array", "items": { "type": "string" } },
+        "no_touch_systems": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "evidence_record": {
+      "type": "object",
+      "properties": {
+        "prompt_trace": { "type": "boolean" },
+        "model_call_trace": { "type": "boolean" },
+        "tool_call_trace": { "type": "boolean" },
+        "network_trace": { "type": "boolean" },
+        "credential_lineage": { "type": "boolean" },
+        "detection_timeline": { "type": "boolean" },
+        "containment_timeline": { "type": "boolean" }
+      }
+    },
+    "disclosure_split": {
+      "type": "object",
+      "properties": {
+        "public_facts": { "type": "array", "items": { "type": "string" } },
+        "private_facts": { "type": "array", "items": { "type": "string" } },
+        "deferred_details": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "remediation": {
+      "type": "object",
+      "properties": {
+        "containment_actions": { "type": "array", "items": { "type": "string" } },
+        "credential_actions": { "type": "array", "items": { "type": "string" } },
+        "patches": { "type": "array", "items": { "type": "string" } },
+        "monitoring_changes": { "type": "array", "items": { "type": "string" } },
+        "external_review": { "type": "string" }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "Agent Incident Disclosure Ledger Kit",
+  "canonical_article_url": "TBD",
+  "public_repo_url": "https://github.com/ankitforce/agent-incident-disclosure-ledger-kit",
+  "read_order": [
+    "README.md",
+    "checklists/disclosure-readiness.md",
+    "templates/public-disclosure.md",
+    "templates/private-evidence-packet.md",
+    "templates/customer-notification.md",
+    "schemas/agent-incident-disclosure.schema.json"
+  ],
+  "allowed_agent_tasks": [
+    "draft_disclosure_packet",
+    "validate_required_fields",
+    "separate_public_private_evidence",
+    "draft_customer_notification"
+  ],
+  "safety_boundaries": [
+    "Do not invent incident facts.",
+    "Do not expose secrets or private raw logs.",
+    "Do not publish or notify without human approval."
+  ]
+}
